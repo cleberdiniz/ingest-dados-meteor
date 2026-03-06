@@ -1,0 +1,38 @@
+project:
+  name: ingest-dados-meteor
+  environment: dev
+
+source:
+  api:
+    name: open_meteo
+    base_url: "https://api.open-meteo.com/v1/forecast"
+    retry: 5
+    cache_seconds: 3600
+
+location:
+  name: sao_paulo
+  latitude: -23.5505
+  longitude: -46.6333
+  timezone: "America/Sao_Paulo"
+
+weather_variables:
+  hourly:
+    - temperature_2m
+    - relative_humidity_2m
+    - precipitation
+    - wind_speed_10m
+
+gcp:
+  project_id: "projeto-meteorologico"
+  bucket_name: "meteorological-data-lake"
+  credentials:
+    method: "service_account_file"
+    service_account_json_path: "D:\\projects\\Estudos\\secrets\\projeto-meteorologico.json"
+
+storage:
+  raw_path: "raw/open_meteo/forecast"
+  format: "parquet"
+
+execution:
+  save_raw_json: true
+  save_parquet: true

@@ -1,5 +1,7 @@
-openmeteo-requests
-requests-cache 
-retry-requests 
-numpy 
+pyyaml
 pandas
+openmeteo-requests
+requests-cache
+retry-requests
+google-cloud-storage
+pyarrow

@@ -48,3 +48,18 @@ class GCSClient:
             buffer,
             content_type="application/octet-stream"
         )
+
+    def download_text(self, blob_name: str) -> str:
+        blob = self.bucket.blob(blob_name)
+        return blob.download_as_text(encoding="utf-8")
+
+    def download_json(self, blob_name: str) -> dict:
+        content = self.download_text(blob_name)
+        return json.loads(content)
+
+    def blob_exists(self, blob_name: str) -> bool:
+        blob = self.bucket.blob(blob_name)
+        return blob.exists()
+
+    def build_gcs_uri(self, blob_name: str) -> str:
+        return f"gs://{self.bucket_name}/{blob_name}"

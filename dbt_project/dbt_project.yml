@@ -1,0 +1,14 @@
+name: 'warehouse_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'warehouse_dbt'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+models:
+  warehouse_dbt:
+    bronze:
+      +materialized: table

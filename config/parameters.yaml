@@ -23,11 +23,11 @@ weather_variables:
     - wind_speed_10m
 
 gcp:
-  project_id: "projeto-meteorologico"
-  bucket_name: "meteorological-data-lake"
+  project_id: "ingest-dados-meteor"   
+  bucket_name: "ingest-dados-meteor_project"
   credentials:
     method: "service_account_file"
-    service_account_json_path: "D:\\projects\\Estudos\\secrets\\projeto-meteorologico.json"
+    service_account_json_path: "C:/Aula/Aula+Python/secret/ingest-dados-meteor-8f2aea5b2918.json"
 
 storage:
   raw_path: "raw/open_meteo/forecast"
@@ -35,7 +35,7 @@ storage:
 
 bigquery:
   dataset_bronze: "bronze_meteor"
-  table_forecast_raw: "open_meteo_forecast_raw"
+  table_forecast_raw: "forecast_raw"
 
 execution:
   save_raw_json: true

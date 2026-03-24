@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import PurePosixPath
 from typing import Any
 
-from schema_registry import SchemaRegistry
+from src.schema_registry import SchemaRegistry
 
 
 class BronzeService:
